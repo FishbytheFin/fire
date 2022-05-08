@@ -3,11 +3,6 @@
 
 #include "gfx/gfx.h"
 
-// struct person
-// {
-
-// };
-
 int score;
 int gameVersion;
 int playerPos = 0;
@@ -23,6 +18,15 @@ int main(void)
     gfx_SetDrawBuffer();
     gfx_SetPalette(global_palette, sizeof_global_palette, 0);
     gfx_SetTransparentColor(0);
+    gfx_FillScreen(1);
+
+    /*fintendo logo*/
+
+    gfx_TransparentSprite_NoClip(fintendo, 18, 88);
+    gfx_BlitBuffer();
+
+    while (!os_GetCSC())
+        ;
 
     /*Drawing*/
     drawScreen();
