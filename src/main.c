@@ -22,7 +22,7 @@ int main(void)
 
     /*fintendo logo*/
 
-    gfx_TransparentSprite_NoClip(fintendo, 18, 88);
+    gfx_TransparentSprite(fintendo, 18, 88);
     gfx_BlitBuffer();
 
     while (!os_GetCSC())
