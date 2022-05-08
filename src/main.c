@@ -3,6 +3,10 @@
 
 #include "gfx/gfx.h"
 
+int score;
+int gameVersion;
+int playerPos;
+
 int main(void)
 {
     /* Initialization */
