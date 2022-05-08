@@ -3,6 +3,11 @@
 
 #include "gfx/gfx.h"
 
+// struct person
+// {
+
+// };
+
 int score;
 int gameVersion;
 int playerPos = 0;
