@@ -5,7 +5,7 @@
 NAME = Fire
 ICON = icon.png
 DESCRIPTION = "A port of Fire for the TI-84 CE"
-COMPRESSED = NO
+COMPRESSED = YES
 ARCHIVED = NO
 
 CFLAGS = -Wall -Wextra -Oz
