@@ -18,7 +18,7 @@ int main(void)
     gfx_SetDrawBuffer();
     gfx_SetPalette(global_palette, sizeof_global_palette, 0);
     gfx_SetTransparentColor(0);
-    gfx_FillScreen(1);
+    gfx_FillScreen(2);
 
     /*fintendo logo*/
 

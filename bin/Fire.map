@@ -2,14 +2,14 @@ Section          Base   Top    High   Length
 ---------------- ------ ------ ------ -------
 .icon            D1A882 D1A9A9           127h
 .init.libs       D1A9A9 D1AA01            58h
-.libs            D1AA01 D1AA2A            29h
-.init.clock      D1AA2A D1AA2A             0h
-.init.reruncheck D1AA2A D1AA2A             0h
-.init            D1AA2A D1AA4A            20h
-.fini            D1AA4A D1AA7E            34h
-.text            D1AA7E D1AB36            B8h
-.data            D1AB36 D2561A          AAE4h
-.rodata          D2561A D2563C            22h
+.libs            D1AA01 D1AA2E            2Dh
+.init.clock      D1AA2E D1AA2E             0h
+.init.reruncheck D1AA2E D1AA2E             0h
+.init            D1AA2E D1AA4E            20h
+.fini            D1AA4E D1AA82            34h
+.text            D1AA82 D1AB6B            E9h
+.data            D1AB6B D29EE2          F377h
+.rodata          D29EE2 D29F04            22h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -29,31 +29,33 @@ ___ctors_count                 = 000000
 ___dtors_count                 = 000000
 ___fini_array_count            = 000000
 __stack                        = D1A87E
-_os_DisableHomeTextBuffer      = D1AA7E
-_os_EnableHomeTextBuffer       = D1AA90
+_os_DisableHomeTextBuffer      = D1AA82
+_os_EnableHomeTextBuffer       = D1AA94
 _os_GetCSC                     = 021D3C
-.missingappvar                 = D2561A
-.libloadname                   = D2561F
+.missingappvar                 = D29EE2
+.libloadname                   = D29EE7
 .libloadnamelen                = 000007
-.webaddress                    = D25627
-__start                        = D1AA2A
-___exithl                      = D1AA4A
-skip._exit                     = D1AA4A
-skip.__Exit                    = D1AA4A
-skip._abort                    = D1AA4A
-_exit.sp                       = D1AA4B
-_exit.flash_wait_states        = D1AA55
-_building_data                 = D1AB36
-_floor_data                    = D1EC30
-_global_palette                = D251EA
-_person1_data                  = D25218
-_main                          = D1AAA2
-_drawScreen                    = D1AAE1
+.webaddress                    = D29EEF
+__start                        = D1AA2E
+___exithl                      = D1AA4E
+skip._exit                     = D1AA4E
+skip.__Exit                    = D1AA4E
+skip._abort                    = D1AA4E
+_exit.sp                       = D1AA4F
+_exit.flash_wait_states        = D1AA59
+_building_data                 = D1AB6B
+_fintendo_data                 = D1EC65
+_floor_data                    = D234C4
+_global_palette                = D29A7E
+_person1_data                  = D29AE0
+_main                          = D1AAA6
+_drawScreen                    = D1AB16
 _#gfx_Begin                    = D1AA0A
 _#gfx_End                      = D1AA0E
 _#gfx_SetPalette               = D1AA12
 _#gfx_FillScreen               = D1AA16
 _#gfx_SetDraw                  = D1AA1A
 _#gfx_Blit                     = D1AA1E
-_#gfx_TransparentSprite_NoClip = D1AA22
-_#gfx_SetTransparentColor      = D1AA26
+_#gfx_Sprite_NoClip            = D1AA22
+_#gfx_TransparentSprite_NoClip = D1AA26
+_#gfx_SetTransparentColor      = D1AA2A
