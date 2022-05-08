@@ -5,7 +5,8 @@
 
 int score;
 int gameVersion;
-int playerPos;
+int playerPos = 0;
+int people[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 int main(void)
 {
@@ -33,6 +34,7 @@ void drawScreen()
 
     gfx_TransparentSprite_NoClip(building, 0, 0);
     gfx_TransparentSprite_NoClip(floor, 72, 135);
+    gfx_TransparentSprite_NoClip(person1, 0, 0);
 
     gfx_BlitBuffer();
 }
