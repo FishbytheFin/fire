@@ -9,6 +9,7 @@ extern "C" {
 #define sprites_palette_offset 0
 #include "building.h"
 #include "floor.h"
+#include "person1.h"
 
 #ifdef __cplusplus
 }

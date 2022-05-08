@@ -8,6 +8,9 @@ int gameVersion;
 int playerPos = 0;
 int people[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
+/*Functions*/
+int drawScreen();
+
 int main(void)
 {
     /* Initialization */
@@ -28,13 +31,14 @@ int main(void)
     return 0;
 }
 
-void drawScreen()
+int drawScreen()
 {
     gfx_FillScreen(1);
 
     gfx_TransparentSprite_NoClip(building, 0, 0);
     gfx_TransparentSprite_NoClip(floor, 72, 135);
-    gfx_TransparentSprite_NoClip(person1, 0, 0);
+    gfx_TransparentSprite_NoClip(person1, 20, 38);
 
     gfx_BlitBuffer();
+    return 0;
 }
