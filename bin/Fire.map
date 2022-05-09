@@ -8,8 +8,8 @@ Section          Base   Top    High   Length
 .init            D1AA2A D1AA4A            20h
 .fini            D1AA4A D1AA7E            34h
 .text            D1AA7E D1AB67            E9h
-.data            D1AB67 D29EAC          F345h
-.rodata          D29EAC D29ECE            22h
+.data            D1AB67 D2DB02         12F9Bh
+.rodata          D2DB02 D2DB24            22h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -32,10 +32,10 @@ __stack                        = D1A87E
 _os_DisableHomeTextBuffer      = D1AA7E
 _os_EnableHomeTextBuffer       = D1AA90
 _os_GetCSC                     = 021D3C
-.missingappvar                 = D29EAC
-.libloadname                   = D29EB1
+.missingappvar                 = D2DB02
+.libloadname                   = D2DB07
 .libloadnamelen                = 000007
-.webaddress                    = D29EB9
+.webaddress                    = D2DB0F
 __start                        = D1AA2A
 ___exithl                      = D1AA4A
 skip._exit                     = D1AA4A
@@ -44,10 +44,10 @@ skip._abort                    = D1AA4A
 _exit.sp                       = D1AA4B
 _exit.flash_wait_states        = D1AA55
 _building_data                 = D1AB67
-_fintendo_data                 = D1EC61
-_floor_data                    = D234C0
-_global_palette                = D29A7A
-_person1_data                  = D29AAA
+_floor_data                    = D1EC61
+_global_palette                = D2521B
+_logo_data                     = D2524D
+_person1_data                  = D2D700
 _main                          = D1AAA2
 _drawScreen                    = D1AB12
 _#gfx_Begin                    = D1AA0A
