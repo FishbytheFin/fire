@@ -11,6 +11,7 @@ extern "C" {
 #include "building.h"
 #include "floor.h"
 #include "person1.h"
+#include "player.h"
 
 #ifdef __cplusplus
 }
