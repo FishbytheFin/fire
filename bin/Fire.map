@@ -7,9 +7,9 @@ Section          Base   Top    High   Length
 .init.reruncheck D1AA38 D1AA38             0h
 .init            D1AA38 D1AA5F            27h
 .fini            D1AA5F D1AA93            34h
-.text            D1AA93 D1AC06           173h
-.data            D1AC06 D2E7C7         13BC1h
-.rodata          D2E7C7 D2E7E9            22h
+.text            D1AA93 D1AC49           1B6h
+.data            D1AC49 D2E80A         13BC1h
+.rodata          D2E80A D2E82C            22h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -32,12 +32,14 @@ __stack                        = D1A87E
 _os_DisableHomeTextBuffer      = D1AA93
 _os_EnableHomeTextBuffer       = D1AAA5
 _os_GetCSC                     = 021D3C
+__frameset                     = D1AAB7
 __imulu                        = 000158
+__sand                         = 000200
 __setflag                      = 000218
-.missingappvar                 = D2E7C7
-.libloadname                   = D2E7CC
+.missingappvar                 = D2E80A
+.libloadname                   = D2E80F
 .libloadnamelen                = 000007
-.webaddress                    = D2E7D4
+.webaddress                    = D2E817
 __start                        = D1AA38
 ___exithl                      = D1AA5F
 skip._exit                     = D1AA5F
@@ -45,14 +47,14 @@ skip.__Exit                    = D1AA5F
 skip._abort                    = D1AA5F
 _exit.sp                       = D1AA60
 _exit.flash_wait_states        = D1AA6A
-_building_data                 = D1AC06
-_floor_data                    = D1ED00
-_global_palette                = D252BA
-_logo_data                     = D252EC
-_person1_data                  = D2D79F
-_player_data                   = D2DBA1
-_main                          = D1AAB7
-_drawScreen                    = D1AB8E
+_building_data                 = D1AC49
+_floor_data                    = D1ED43
+_global_palette                = D252FD
+_logo_data                     = D2532F
+_person1_data                  = D2D7E2
+_player_data                   = D2DBE4
+_main                          = D1AAC5
+_drawScreen                    = D1ABD1
 _playerPos                     = D052C6
 _#gfx_Begin                    = D1AA0A
 _#gfx_End                      = D1AA0E

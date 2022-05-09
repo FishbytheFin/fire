@@ -22,6 +22,7 @@ int main(void)
     gfx_FillScreen(1);
 
     kb_key_t key;
+    kb_key_t prevkey = kb_Sub;
 
     /*game and watch logo*/
 
@@ -39,24 +40,24 @@ int main(void)
         kb_Scan();
 
         key = kb_Data[7];
-        switch (key)
+
+        if (key == kb_Right && key != prevkey)
         {
-        case kb_Right:
             playerPos++;
             if (playerPos > 2)
                 playerPos = 2;
             drawScreen();
-            break;
-        case kb_Left:
+        }
+        else if (key == kb_Left && key != prevkey)
+        {
             playerPos--;
             if (playerPos < 0)
                 playerPos = 0;
             drawScreen();
-            break;
-
-        default:
-            break;
         }
+
+        prevkey = key;
+
         if (kb_Data[6] == kb_Clear)
         {
             break;
