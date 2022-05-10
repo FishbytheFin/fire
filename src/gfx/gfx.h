@@ -17,13 +17,7 @@ extern "C" {
 #include "person5.h"
 #include "person6.h"
 #include "person7.h"
-#include "person8.h"
-#include "person9.h"
-#include "person10.h"
-#include "person11.h"
-#include "person12.h"
-#include "person13.h"
-#include "person14.h"
+#include "crash.h"
 #include "player.h"
 
 #ifdef __cplusplus

@@ -77,7 +77,17 @@ int drawScreen()
 
     gfx_TransparentSprite_NoClip(building, 0, 0);
     gfx_TransparentSprite_NoClip(floor, 72, 135);
+
     gfx_TransparentSprite_NoClip(person1, 20, 38);
+    gfx_TransparentSprite_NoClip(person2, 50, 38);
+    gfx_TransparentSprite_NoClip(person3, 80, 38);
+    gfx_TransparentSprite_NoClip(person4, 110, 38);
+    gfx_TransparentSprite_NoClip(person5, 140, 38);
+    gfx_TransparentSprite_NoClip(person6, 170, 38);
+    gfx_TransparentSprite_NoClip(person7, 200, 38);
+
+    gfx_TransparentSprite_NoClip(crash);
+
     gfx_TransparentSprite_NoClip(player, 28 + (playerPos * 79), 177);
 
     gfx_BlitBuffer();
