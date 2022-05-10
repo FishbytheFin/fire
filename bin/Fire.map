@@ -7,9 +7,9 @@ Section          Base   Top    High   Length
 .init.reruncheck D1AA38 D1AA38             0h
 .init            D1AA38 D1AA5F            27h
 .fini            D1AA5F D1AA93            34h
-.text            D1AA93 D1AD67           2D4h
-.data            D1AD67 D311E7         16480h
-.rodata          D311E7 D31209            22h
+.text            D1AA93 D1ACCD           23Ah
+.data            D1ACCD D2C149         1147Ch
+.rodata          D2C149 D2C16B            22h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -36,10 +36,10 @@ __frameset                     = D1AAB7
 __imulu                        = 000158
 __sand                         = 000200
 __setflag                      = 000218
-.missingappvar                 = D311E7
-.libloadname                   = D311EC
+.missingappvar                 = D2C149
+.libloadname                   = D2C14E
 .libloadnamelen                = 000007
-.webaddress                    = D311F4
+.webaddress                    = D2C156
 __start                        = D1AA38
 ___exithl                      = D1AA5F
 skip._exit                     = D1AA5F
@@ -47,25 +47,18 @@ skip.__Exit                    = D1AA5F
 skip._abort                    = D1AA5F
 _exit.sp                       = D1AA60
 _exit.flash_wait_states        = D1AA6A
-_building_data                 = D1AD67
-_floor_data                    = D1EE61
-_global_palette                = D2541B
-_logo_data                     = D2544D
-_person1_data                  = D2D900
-_person10_data                 = D2DD02
-_person11_data                 = D2DFDC
-_person12_data                 = D2E290
-_person13_data                 = D2E5DB
-_person14_data                 = D2E93D
-_person2_data                  = D2EBE2
-_person3_data                  = D2EEA0
-_person4_data                  = D2F1DB
-_person5_data                  = D2F51D
-_person6_data                  = D2F83F
-_person7_data                  = D2FC41
-_person8_data                  = D2FF37
-_person9_data                  = D3025F
-_player_data                   = D305C1
+_building_data                 = D1ACCD
+_crash_data                    = D1EDC7
+_floor1_data                   = D1F3C9
+_floor2_data                   = D20F6F
+_global_palette                = D21F9D
+_logo_data                     = D21FCF
+_person1_data                  = D2A482
+_person2_data                  = D2A884
+_person3_data                  = D2ABBF
+_person4_data                  = D2AEE7
+_person5_data                  = D2B249
+_player_data                   = D2B523
 _main                          = D1AAC5
 _drawScreen                    = D1ABD1
 _playerPos                     = D052C6

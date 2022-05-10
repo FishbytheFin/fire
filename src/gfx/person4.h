@@ -5,11 +5,11 @@
 extern "C" {
 #endif
 
-#define person4_width 31
-#define person4_height 26
-#define person4_size 808
+#define person4_width 32
+#define person4_height 27
+#define person4_size 866
 #define person4 ((gfx_sprite_t*)person4_data)
-extern unsigned char person4_data[808];
+extern unsigned char person4_data[866];
 
 #ifdef __cplusplus
 }

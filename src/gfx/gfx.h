@@ -9,14 +9,13 @@ extern "C" {
 #define sprites_palette_offset 0
 #include "logo.h"
 #include "building.h"
-#include "floor.h"
+#include "floor1.h"
+#include "floor2.h"
 #include "person1.h"
 #include "person2.h"
 #include "person3.h"
 #include "person4.h"
 #include "person5.h"
-#include "person6.h"
-#include "person7.h"
 #include "crash.h"
 #include "player.h"
 
