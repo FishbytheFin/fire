@@ -7,22 +7,22 @@ Section          Base   Top    High   Length
 .init.reruncheck D1AA38 D1AA38             0h
 .init            D1AA38 D1AA62            2Ah
 .fini            D1AA62 D1AA96            34h
-.text            D1AA96 D1ADCF           339h
-.data            D1ADCF D2C24B         1147Ch
-.rodata          D2C24B D2C2AF            64h
+.text            D1AA96 D1AE8A           3F4h
+.data            D1AE8A D2C348         114BEh
+.rodata          D2C348 D2C3AC            64h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
 .fini_array      000000 000000             0h
-.bss             D052C6 D052CF D13FD8      9h
+.bss             D052C6 D05311 D13FD8     4Bh
 .header          D1A87F D1A882             3h
 
 Label                            Value
 ------------------------------   ------
 ___low_bss                     = D052C6
-___len_bss                     = 000009
+___len_bss                     = 00004B
 ___heaptop                     = D13FD8
-___heapbot                     = D052CF
+___heapbot                     = D05311
 ___libs                        = D1AA01
 ___init_array_count            = 000000
 ___ctors_count                 = 000000
@@ -35,12 +35,13 @@ _os_GetCSC                     = 021D3C
 __frameset                     = D1AABA
 __frameset0                    = D1AAC8
 __imulu                        = 000158
+__irems                        = 00016C
 __sand                         = 000200
 __setflag                      = 000218
-.missingappvar                 = D2C24B
-.libloadname                   = D2C250
+.missingappvar                 = D2C348
+.libloadname                   = D2C34D
 .libloadnamelen                = 000007
-.webaddress                    = D2C258
+.webaddress                    = D2C355
 __start                        = D1AA38
 ___exithl                      = D1AA62
 skip._exit                     = D1AA62
@@ -48,25 +49,30 @@ skip.__Exit                    = D1AA62
 skip._abort                    = D1AA62
 _exit.sp                       = D1AA63
 _exit.flash_wait_states        = D1AA6D
-_building_data                 = D1ADCF
-_crash_data                    = D1EEC9
-_floor1_data                   = D1F4CB
-_floor2_data                   = D21071
-_global_palette                = D2209F
-_logo_data                     = D220D1
-_person1_data                  = D2A584
-_person2_data                  = D2A986
-_person3_data                  = D2ACC1
-_person4_data                  = D2AFE9
-_person5_data                  = D2B34B
-_player_data                   = D2B625
+_building_data                 = D1AE8A
+_crash_data                    = D1EF84
+_floor1_data                   = D1F586
+_floor2_data                   = D2112C
+_global_palette                = D2215A
+_logo_data                     = D2218C
+_person1_data                  = D2A63F
+_person2_data                  = D2AA41
+_person3_data                  = D2AD7C
+_person4_data                  = D2B0A4
+_person5_data                  = D2B406
+_player_data                   = D2B6E0
 _main                          = D1AAD3
-_drawScreen                    = D1AC00
-_drawPerson                    = D1ACBA
-LJTI2_0                        = D2C26D
+_drawScreen                    = D1AC1D
+_drawPerson                    = D1AD12
+LJTI2_0                        = D2C36A
+_update                        = D1AE27
 _playerPos                     = D052C6
-_frame                         = D052C9
-_i                             = D052CC
+_crashed                       = D052C9
+_frame                         = D052CC
+_speed                         = D2C306
+_people                        = D2C309
+_tempPeople                    = D052CF
+_i                             = D0530E
 _#gfx_Begin                    = D1AA0A
 _#gfx_End                      = D1AA0E
 _#gfx_SetPalette               = D1AA12

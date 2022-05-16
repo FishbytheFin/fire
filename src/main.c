@@ -1,6 +1,7 @@
 #include <tice.h>
 #include <graphx.h>
 #include <keypadc.h>
+#include <string.h>
 
 #include "gfx/gfx.h"
 
@@ -13,15 +14,21 @@ ToDo:
         - Actually code the game
 */
 
-int score;
+int score = 0;
 int playerPos = 0;
-int people[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-int i;
+int crashed = 0;
 int frame = 0;
+int speed = 5;
+
+int i;
+
+int people[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+int tempPeople[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 /*Functions*/
 int drawScreen();
 int drawPerson();
+int update();
 
 int main(void)
 {
@@ -50,10 +57,8 @@ int main(void)
     {
 
         frame++;
-        if (frame > 16)
-        {
-            frame = 1;
-        }
+
+        /*User input:*/
         kb_Scan();
 
         key = kb_Data[7];
@@ -79,10 +84,14 @@ int main(void)
         {
             break;
         }
-        drawScreen();
-    }
 
-    /* Waits for a key */
+        /*Logic + graphics:*/
+        if (frame % speed == 0)
+        {
+            update();
+            drawScreen();
+        }
+    }
 
     gfx_End();
 
@@ -97,12 +106,29 @@ int drawScreen()
     gfx_TransparentSprite_NoClip(floor1, 76, 211);
     gfx_TransparentSprite_NoClip(floor2, 257, 142);
 
-    for (i = 0; i < 23; i++)
+    for (i = 0; i < 21; i++)
     {
-        drawPerson(i);
+        if (people[i] == 1)
+        {
+            drawPerson(i + 1);
+        }
     }
 
-    gfx_TransparentSprite_NoClip(crash, 36, 208);
+    switch (crashed)
+    {
+    case 1:
+        gfx_TransparentSprite_NoClip(crash, 36, 208);
+        break;
+    case 2:
+        gfx_TransparentSprite_NoClip(crash, 111, 208);
+        break;
+    case 3:
+        gfx_TransparentSprite_NoClip(crash, 186, 208);
+        break;
+
+    default:
+        break;
+    }
 
     gfx_TransparentSprite_NoClip(player, 28 + (playerPos * 75), 177);
 
@@ -182,6 +208,29 @@ int drawPerson(int location)
         break;
     default:
         return 1;
+    }
+    return 0;
+}
+
+int update()
+{
+    memcpy(people, tempPeople, sizeof people);
+
+    for (i = 0; i < 21; i++)
+    {
+        if (tempPeople[i] == 1)
+        {
+            if (i == 21)
+            {
+                score++;
+                people[0] = 1;
+            }
+            else
+            {
+                people[i + 1] = 1;
+            }
+            people[i] = 0;
+        }
     }
     return 0;
 }
