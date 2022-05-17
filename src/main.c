@@ -1,13 +1,12 @@
 #include <tice.h>
 #include <graphx.h>
 #include <keypadc.h>
-#include <string.h>
 
 #include "gfx/gfx.h"
 
 /*
 ToDo:
-        - Optimize building sprite(slipt building and fire to save litteral kilobites of data(uncompressed))
+        - Optimize building sprite(split building and fire to save litteral kilobites of data(uncompressed))
         - Add smoke
         - Add Misses
         - Add Score display
@@ -15,10 +14,11 @@ ToDo:
 */
 
 int score = 0;
+int misses = 0;
 int playerPos = 0;
 int crashed = 0;
 int frame = 0;
-int speed = 5;
+int frameDelay = 30;
 
 int i;
 
@@ -86,7 +86,7 @@ int main(void)
         }
 
         /*Logic + graphics:*/
-        if (frame % speed == 0)
+        if (frame % frameDelay == 0)
         {
             update();
             drawScreen();
@@ -106,7 +106,7 @@ int drawScreen()
     gfx_TransparentSprite_NoClip(floor1, 76, 211);
     gfx_TransparentSprite_NoClip(floor2, 257, 142);
 
-    for (i = 0; i < 21; i++)
+    for (i = 0; i < 22; i++)
     {
         if (people[i] == 1)
         {
@@ -133,6 +133,14 @@ int drawScreen()
     gfx_TransparentSprite_NoClip(player, 28 + (playerPos * 75), 177);
 
     gfx_BlitBuffer();
+
+    if (crashed != 0)
+    {
+        delay(1500);
+        crashed = 0;
+        misses++;
+    }
+
     return 0;
 }
 
@@ -214,12 +222,51 @@ int drawPerson(int location)
 
 int update()
 {
-    memcpy(people, tempPeople, sizeof people);
+    for (i = 0; i < 22; i++)
+    {
+        tempPeople[i] = people[i];
+    }
 
-    for (i = 0; i < 21; i++)
+    for (i = 0; i < 22; i++)
     {
         if (tempPeople[i] == 1)
         {
+            // Catching:
+            if (i == 4)
+            {
+                if (playerPos == 0)
+                {
+                    score++;
+                }
+                else
+                {
+                    crashed = 1;
+                }
+            }
+            else if (i == 12)
+            {
+                if (playerPos == 1)
+                {
+                    score++;
+                }
+                else
+                {
+                    crashed = 2;
+                }
+            }
+            else if (i == 18)
+            {
+                if (playerPos == 2)
+                {
+                    score++;
+                }
+                else
+                {
+                    crashed = 3;
+                }
+            }
+
+            // Landing in the ambulence:
             if (i == 21)
             {
                 score++;
