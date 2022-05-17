@@ -17,6 +17,7 @@ extern "C" {
 #include "person4.h"
 #include "person5.h"
 #include "crash.h"
+#include "miss.h"
 #include "player.h"
 
 #ifdef __cplusplus

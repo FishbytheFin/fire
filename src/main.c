@@ -114,6 +114,14 @@ int drawScreen()
         }
     }
 
+    if (misses > 0)
+    {
+        for (i = 0; i < misses; i++)
+        {
+            gfx_TransparentSprite_NoClip(miss, 320 - (20 * i), 0);
+        }
+    }
+
     switch (crashed)
     {
     case 1:
