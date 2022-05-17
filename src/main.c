@@ -18,7 +18,7 @@ int misses = 0;
 int playerPos = 0;
 int crashed = 0;
 int frame = 0;
-int frameDelay = 30;
+int frameDelay = 70;
 
 int i;
 
