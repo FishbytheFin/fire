@@ -80,7 +80,7 @@ int main(void)
 
         prevkey = key;
 
-        if (kb_Data[6] == kb_Clear)
+        if (kb_Data[6] == kb_Clear || misses >= 3)
         {
             break;
         }
@@ -118,7 +118,7 @@ int drawScreen()
     {
         for (i = 0; i < misses; i++)
         {
-            gfx_TransparentSprite_NoClip(miss, 320 - (20 * i), 0);
+            gfx_TransparentSprite_NoClip(miss, 300 - (20 * i), 0);
         }
     }
 
