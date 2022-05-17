@@ -126,12 +126,15 @@ int drawScreen()
     {
     case 1:
         gfx_TransparentSprite_NoClip(crash, 36, 208);
+        people[5] = 1;
         break;
     case 2:
         gfx_TransparentSprite_NoClip(crash, 111, 208);
+        people[13] = 1;
         break;
     case 3:
         gfx_TransparentSprite_NoClip(crash, 186, 208);
+        people[19] = 1;
         break;
 
     default:
@@ -239,12 +242,19 @@ int update()
     {
         if (tempPeople[i] == 1)
         {
-            // Catching:
-            if (i == 4)
+
+            // Catching + Landing in the ambulence:
+            if (i == 21)
+            {
+                score++;
+                people[0] = 1;
+            }
+            else if (i == 4)
             {
                 if (playerPos == 0)
                 {
                     score++;
+                    people[i + 1] = 1;
                 }
                 else
                 {
@@ -256,6 +266,7 @@ int update()
                 if (playerPos == 1)
                 {
                     score++;
+                    people[i + 1] = 1;
                 }
                 else
                 {
@@ -267,6 +278,7 @@ int update()
                 if (playerPos == 2)
                 {
                     score++;
+                    people[i + 1] = 1;
                 }
                 else
                 {
@@ -274,12 +286,6 @@ int update()
                 }
             }
 
-            // Landing in the ambulence:
-            if (i == 21)
-            {
-                score++;
-                people[0] = 1;
-            }
             else
             {
                 people[i + 1] = 1;
