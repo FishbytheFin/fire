@@ -14,11 +14,14 @@ ToDo:
 */
 
 int score = 0;
+int nextScore = 30;
 int misses = 0;
 int playerPos = 0;
 int crashed = 0;
 int frame = 0;
-int frameDelay = 70;
+int frameDelay = 100;
+// int addFrame = 100;
+int addedPeople = 0;
 
 int i;
 
@@ -293,5 +296,24 @@ int update()
             people[i] = 0;
         }
     }
+    //
+    if (score >= nextScore && addedPeople < 3 && people[0] == 0 && people[2] == 0 && people[3] == 0 && people[4] == 0 && people[5] == 0 && people[10] == 0 && people[11] == 0 && people[12] == 0 && people[13] == 0 && people[16] == 0 && people[17] == 0 && people[18] == 0 && people[19] == 0)
+    {
+        // 0, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19
+        nextScore *= 2;
+        addedPeople++;
+        people[0] = 1;
+    }
+    // if (addFrame == 0)
+    // {
+    //     addFrame = 100;
+    //     addedPeople++;
+    //     people[0] = 1;
+    // }
+    // else if (addFrame != 100)
+    // {
+    //     addFrame--;
+    // }
+
     return 0;
 }

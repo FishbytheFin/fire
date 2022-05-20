@@ -7,22 +7,22 @@ Section          Base   Top    High   Length
 .init.reruncheck D1AA53 D1AA53             0h
 .init            D1AA53 D1AA7D            2Ah
 .fini            D1AA7D D1AAB1            34h
-.text            D1AAB1 D1B0CF           61Eh
-.data            D1B0CF D2C691         115C2h
-.rodata          D2C691 D2C6FE            6Dh
+.text            D1AAB1 D1B1F7           746h
+.data            D1B1F7 D2C7BC         115C5h
+.rodata          D2C7BC D2C829            6Dh
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
 .fini_array      000000 000000             0h
-.bss             D052C6 D05317 D13FD8     51h
+.bss             D052C6 D0531A D13FD8     54h
 .header          D1A87F D1A882             3h
 
 Label                            Value
 ------------------------------   ------
 ___low_bss                     = D052C6
-___len_bss                     = 000051
+___len_bss                     = 000054
 ___heaptop                     = D13FD8
-___heapbot                     = D05317
+___heapbot                     = D0531A
 ___libs                        = D1AA01
 ___init_array_count            = 000000
 ___ctors_count                 = 000000
@@ -43,10 +43,10 @@ __irems                        = 00016C
 __lmulu                        = 0001CC
 __sand                         = 000200
 __setflag                      = 000218
-.missingappvar                 = D2C691
-.libloadname                   = D2C696
+.missingappvar                 = D2C7BC
+.libloadname                   = D2C7C1
 .libloadnamelen                = 000007
-.webaddress                    = D2C69E
+.webaddress                    = D2C7C9
 ___init_clock                  = D1AA38
 __start                        = D1AA53
 ___exithl                      = D1AA7D
@@ -55,34 +55,36 @@ skip.__Exit                    = D1AA7D
 skip._abort                    = D1AA7D
 _exit.sp                       = D1AA7E
 _exit.flash_wait_states        = D1AA88
-_building_data                 = D1B0CF
-_crash_data                    = D1F1C9
-_floor1_data                   = D1F7CB
-_floor2_data                   = D21371
-_global_palette                = D2239F
-_logo_data                     = D223D3
-_miss_data                     = D2A886
-_person1_data                  = D2A988
-_person2_data                  = D2AD8A
-_person3_data                  = D2B0C5
-_person4_data                  = D2B3ED
-_person5_data                  = D2B74F
-_player_data                   = D2BA29
+_building_data                 = D1B1F7
+_crash_data                    = D1F2F1
+_floor1_data                   = D1F8F3
+_floor2_data                   = D21499
+_global_palette                = D224C7
+_logo_data                     = D224FB
+_miss_data                     = D2A9AE
+_person1_data                  = D2AAB0
+_person2_data                  = D2AEB2
+_person3_data                  = D2B1ED
+_person4_data                  = D2B515
+_person5_data                  = D2B877
+_player_data                   = D2BB51
 _main                          = D1AB63
 _drawScreen                    = D1ACC0
 _drawPerson                    = D1AE63
-LJTI2_0                        = D2C6B3
+LJTI2_0                        = D2C7DE
 _update                        = D1AF78
 _score                         = D052C6
+_nextScore                     = D2C777
 _misses                        = D052C9
 _playerPos                     = D052CC
 _crashed                       = D052CF
 _frame                         = D052D2
-_frameDelay                    = D2C64F
-_people                        = D2C652
-_tempPeople                    = D052D5
-_i                             = D05314
-L_switch.table.drawScreen      = D2C6F5
+_frameDelay                    = D2C77A
+_addedPeople                   = D052D5
+_people                        = D2C77D
+_tempPeople                    = D052D8
+_i                             = D05317
+L_switch.table.drawScreen      = D2C820
 _#gfx_Begin                    = D1AA0A
 _#gfx_End                      = D1AA0E
 _#gfx_SetPalette               = D1AA12
