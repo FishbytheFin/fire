@@ -8,9 +8,7 @@
 ToDo:
         - Optimize building sprite(split building and fire to save litteral kilobites of data(uncompressed))
         - Add smoke
-        - Add Misses
         - Add Score display
-        - Actually code the game
 */
 
 int score = 0;
