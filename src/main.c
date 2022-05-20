@@ -6,9 +6,7 @@
 
 /*
 ToDo:
-        - Optimize building sprite(split building and fire to save litteral kilobites of data(uncompressed))
         - Add smoke
-        - Add Score display
 */
 
 int score = 0;
@@ -22,8 +20,8 @@ int addedPeople = 0;
 
 int i;
 
-int people[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-int tempPeople[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+int people[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+int tempPeople[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 /*Functions*/
 int drawScreen();
@@ -39,6 +37,7 @@ int main(void)
     gfx_SetPalette(global_palette, sizeof_global_palette, 0);
     gfx_SetTransparentColor(0);
     gfx_FillScreen(1);
+    gfx_SetTextFGColor(3); // From global pallet. Double check if colors are funky
 
     kb_key_t key;
     kb_key_t prevkey = kb_Sub;
@@ -103,7 +102,10 @@ int drawScreen()
 {
     gfx_FillScreen(1);
 
-    gfx_TransparentSprite_NoClip(building, 0, 0);
+    gfx_TransparentSprite_NoClip(building1, 0, 0);
+    gfx_TransparentSprite_NoClip(building0, 0, 45);
+    gfx_TransparentSprite_NoClip(building2, 0, 211);
+
     gfx_TransparentSprite_NoClip(floor1, 76, 211);
     gfx_TransparentSprite_NoClip(floor2, 257, 142);
 
@@ -142,8 +144,10 @@ int drawScreen()
         break;
     }
 
-    gfx_TransparentSprite_NoClip(player, 28 + (playerPos * 75), 177);
+    gfx_TransparentSprite_NoClip(player, 28 + (playerPos * 75), 185);
 
+    gfx_SetTextXY(240, 10);
+    gfx_PrintInt(score, 1);
     gfx_BlitBuffer();
 
     if (crashed != 0)
@@ -286,7 +290,6 @@ int update()
                     crashed = 3;
                 }
             }
-
             else
             {
                 people[i + 1] = 1;
@@ -294,7 +297,7 @@ int update()
             people[i] = 0;
         }
     }
-    if (score >= nextScore && addedPeople < 3 && people[0] == 0 && people[2] == 0 && people[3] == 0 && people[4] == 0 && people[5] == 0 && people[10] == 0 && people[11] == 0 && people[12] == 0 && people[13] == 0 && people[16] == 0 && people[17] == 0 && people[18] == 0 && people[19] == 0)
+    if (score >= nextScore && addedPeople < 3 && people[0] == 0 && people[2] == 0 && people[3] == 0 && people[4] == 0 && people[5] == 0 && people[10] == 0 && people[11] == 0 && people[12] == 0 && people[13] == 0 && people[16] == 0 && people[17] == 0 && people[18] == 0 && people[19] == 0 && people[20] == 0)
     {
         nextScore *= 2;
         addedPeople++;
