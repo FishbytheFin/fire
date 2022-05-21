@@ -2,14 +2,14 @@ Section          Base   Top    High   Length
 ---------------- ------ ------ ------ -------
 .icon            D1A882 D1A9A9           127h
 .init.libs       D1A9A9 D1AA01            58h
-.libs            D1AA01 D1AA66            65h
-.init.clock      D1AA66 D1AA81            1Bh
-.init.reruncheck D1AA81 D1AA81             0h
-.init            D1AA81 D1AAAB            2Ah
-.fini            D1AAAB D1AADF            34h
-.text            D1AADF D1B633           B54h
-.data            D1B633 D2B91C         102E9h
-.rodata          D2B91C D2B9C9            ADh
+.libs            D1AA01 D1AA6E            6Dh
+.init.clock      D1AA6E D1AA89            1Bh
+.init.reruncheck D1AA89 D1AA89             0h
+.init            D1AA89 D1AAB3            2Ah
+.fini            D1AAB3 D1AAE7            34h
+.text            D1AAE7 D1B762           C7Bh
+.data            D1B762 D2BA4B         102E9h
+.rodata          D2BA4B D2BB0D            C2h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -29,83 +29,86 @@ ___ctors_count                 = 000000
 ___dtors_count                 = 000000
 ___fini_array_count            = 000000
 __stack                        = D1A87E
-_atomic_load_increasing_32     = D1AADF
-_delay                         = D1AB04
-_os_DisableHomeTextBuffer      = D1AB2E
-_os_EnableHomeTextBuffer       = D1AB40
-_random                        = D1AB52
-__state                        = D1B633
-___sleep_common.3              = D1ABAB
+_atomic_load_increasing_32     = D1AAE7
+_delay                         = D1AB0C
+_os_DisableHomeTextBuffer      = D1AB36
+_os_EnableHomeTextBuffer       = D1AB48
+_random                        = D1AB5A
+__state                        = D1B762
+___sleep_common.3              = D1ABB3
 _os_GetCSC                     = 021D3C
-_clock                         = D1ABC4
-__frameset                     = D1ABCF
-__frameset0                    = D1ABDD
+_clock                         = D1ABCC
+__frameset                     = D1ABD7
+__frameset0                    = D1ABE5
 __iand                         = 000134
 __imulu                        = 000158
 __irems                        = 00016C
+__ishru                        = 000184
 __lmulu                        = 0001CC
 __sand                         = 000200
 __setflag                      = 000218
-.missingappvar                 = D2B91C
-.libloadname                   = D2B921
+.missingappvar                 = D2BA4B
+.libloadname                   = D2BA50
 .libloadnamelen                = 000007
-.webaddress                    = D2B929
-___init_clock                  = D1AA66
-__start                        = D1AA81
-___exithl                      = D1AAAB
-skip._exit                     = D1AAAB
-skip.__Exit                    = D1AAAB
-skip._abort                    = D1AAAB
-_exit.sp                       = D1AAAC
-_exit.flash_wait_states        = D1AAB6
-_building0_data                = D1B643
-_building1_data                = D1CBAB
-_building2_data                = D1D855
-_crash_data                    = D1DBCB
-_floor1_data                   = D1E1CD
-_floor2_data                   = D1FD73
-_global_palette                = D20DA1
-_logo_data                     = D20DD3
-_miss_data                     = D29286
-_person1_data                  = D29388
-_person2_data                  = D2978A
-_person3_data                  = D29AC5
-_person4_data                  = D29DED
-_person5_data                  = D2A14F
-_player_data                   = D2A429
-_smoke0_data                   = D2ADFF
-_smoke1_data                   = D2B419
-_main                          = D1ABE8
-_drawScreen                    = D1AEBB
-_drawPerson                    = D1B18D
-LJTI2_0                        = D2B93E
-_update                        = D1B2A2
-_addScore                      = D1B523
-_saveHighScore                 = D1B59D
-_loadHighScore                 = D1B5F5
+.webaddress                    = D2BA58
+___init_clock                  = D1AA6E
+__start                        = D1AA89
+___exithl                      = D1AAB3
+skip._exit                     = D1AAB3
+skip.__Exit                    = D1AAB3
+skip._abort                    = D1AAB3
+_exit.sp                       = D1AAB4
+_exit.flash_wait_states        = D1AABE
+_building0_data                = D1B772
+_building1_data                = D1CCDA
+_building2_data                = D1D984
+_crash_data                    = D1DCFA
+_floor1_data                   = D1E2FC
+_floor2_data                   = D1FEA2
+_global_palette                = D20ED0
+_logo_data                     = D20F02
+_miss_data                     = D293B5
+_person1_data                  = D294B7
+_person2_data                  = D298B9
+_person3_data                  = D29BF4
+_person4_data                  = D29F1C
+_person5_data                  = D2A27E
+_player_data                   = D2A558
+_smoke0_data                   = D2AF2E
+_smoke1_data                   = D2B548
+_main                          = D1ABF0
+_drawScreen                    = D1AFEA
+_drawPerson                    = D1B2BC
+LJTI2_0                        = D2BA6D
+_update                        = D1B3D1
+_addScore                      = D1B652
+_saveHighScore                 = D1B6CC
+_loadHighScore                 = D1B724
 _score                         = D052C6
 _highScore                     = D052C9
-_nextScore                     = D2B8D4
+_nextScore                     = D2BA03
 _misses                        = D052CC
 _playerPos                     = D052CF
 _crashed                       = D052D2
 _frame                         = D052D5
 _smokeFrame                    = D052D8
-_frameDelay                    = D2B8D7
+_frameDelay                    = D2BA06
 _addedPeople                   = D052DB
 _again                         = D052DE
-_people                        = D2B8DA
+_people                        = D2BA09
 _tempPeople                    = D052E1
+L_.str                         = D2BAAF
+L_.str.1                       = D2BAB5
+L_.str.2                       = D2BAC4
 _i                             = D05323
-L_.str                         = D2B980
-L_.str.1                       = D2B987
-L_.str.2                       = D2B98B
-L_.str.3                       = D2B99D
-L_.str.4                       = D2B9A9
-L_.str.5                       = D2B9B0
-L_.str.6                       = D2B9BC
-L_.str.7                       = D2B9BE
-L_switch.table.drawScreen      = D2B9C0
+L_.str.3                       = D2BAD0
+L_.str.4                       = D2BAD7
+L_.str.5                       = D2BADB
+L_.str.6                       = D2BAED
+L_.str.7                       = D2BAF4
+L_.str.8                       = D2BB00
+L_.str.9                       = D2BB02
+L_switch.table.drawScreen      = D2BB04
 _#ti_CloseAll                  = D1AA0B
 _#ti_Open                      = D1AA0F
 _#ti_Write                     = D1AA13
@@ -117,10 +120,12 @@ _#gfx_SetPalette               = D1AA30
 _#gfx_FillScreen               = D1AA34
 _#gfx_SetDraw                  = D1AA38
 _#gfx_Blit                     = D1AA3C
-_#gfx_PrintInt                 = D1AA40
-_#gfx_PrintStringXY            = D1AA44
-_#gfx_SetTextXY                = D1AA48
-_#gfx_SetTextFGColor           = D1AA4C
-_#gfx_TransparentSprite_NoClip = D1AA50
-_#gfx_SetTransparentColor      = D1AA54
-_#kb_Scan                      = D1AA62
+_#gfx_BlitRectangle            = D1AA40
+_#gfx_PrintInt                 = D1AA44
+_#gfx_PrintStringXY            = D1AA48
+_#gfx_SetTextXY                = D1AA4C
+_#gfx_SetTextFGColor           = D1AA50
+_#gfx_GetStringWidth           = D1AA54
+_#gfx_TransparentSprite_NoClip = D1AA58
+_#gfx_SetTransparentColor      = D1AA5C
+_#kb_Scan                      = D1AA6A

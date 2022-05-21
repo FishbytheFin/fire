@@ -7,7 +7,6 @@
 
 /*
 ToDo:
-        - Pausing
         - more control options(7, 9, 4, 6, 1, 3)
 */
 
@@ -48,7 +47,8 @@ int main(void)
     gfx_FillScreen(1);
 
     kb_key_t key;
-    kb_key_t prevkey = kb_Sub;
+    kb_key_t prevarrowkey = kb_Sub;
+    kb_key_t prevpausekey = kb_Enter;
 
     /*game and watch logo*/
 
@@ -71,14 +71,14 @@ int main(void)
 
         key = kb_Data[7];
 
-        if (key == kb_Right && key != prevkey)
+        if (key == kb_Right && key != prevarrowkey)
         {
             playerPos++;
             if (playerPos > 2)
                 playerPos = 2;
             drawScreen();
         }
-        else if (key == kb_Left && key != prevkey)
+        else if (key == kb_Left && key != prevarrowkey)
         {
             playerPos--;
             if (playerPos < 0)
@@ -86,8 +86,46 @@ int main(void)
             drawScreen();
         }
 
-        prevkey = key;
-        // kb_Data[6] == kb_Clear ||
+        // Pausing:
+        if ((kb_Data[6] == kb_Clear || kb_Data[6] == kb_Enter) && prevpausekey != kb_Clear && prevpausekey != kb_Enter)
+        {
+            prevpausekey = kb_Data[6];
+
+            // Drawing Pause Screen:
+            gfx_FillScreen(3);
+            gfx_SetTextFGColor(1);
+
+            gfx_PrintStringXY("Pause", 160 - (gfx_GetStringWidth("Pause") / 2), 82);
+            gfx_PrintStringXY("Enter: Unpause", 160 - (gfx_GetStringWidth("Enter: Unpause") / 2), 102);
+            gfx_PrintStringXY("Clear: Exit", 160 - (gfx_GetStringWidth("Clear: Exit") / 2), 122);
+
+            gfx_BlitRectangle(gfx_buffer, 107, 80, 106, 80);
+
+            // Input:
+            while (true)
+            {
+                kb_Scan();
+
+                key = kb_Data[6];
+                if (key == kb_Clear && prevpausekey != kb_Clear)
+                {
+                    gfx_End();
+                    return 0;
+                }
+                else if (key == kb_Enter && prevpausekey != kb_Enter)
+                {
+                    prevpausekey = key;
+                    break;
+                }
+
+                prevpausekey = key;
+            }
+        }
+
+        prevarrowkey = key;
+        prevpausekey = kb_Data[6];
+
+        // Losing:
         if (misses >= 3)
         {
             loadHighScore();
@@ -125,6 +163,7 @@ int main(void)
                         tempPeople[i] = 0;
                     }
                     people[1] = 1;
+                    prevpausekey = kb_Enter;
                     break;
                 }
 
