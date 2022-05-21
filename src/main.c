@@ -6,9 +6,9 @@
 
 /*
 ToDo:
-        - Add smoke
         - High score
         - Pausing
+        - more control options(7, 9, 4, 6, 1, 3)
 */
 
 int score = 0;
@@ -17,6 +17,7 @@ int misses = 0;
 int playerPos = 0;
 int crashed = 0;
 int frame = 0;
+int smokeFrame = 0;
 int frameDelay = 100;
 int addedPeople = 0;
 
@@ -39,7 +40,7 @@ int main(void)
     gfx_SetPalette(global_palette, sizeof_global_palette, 0);
     gfx_SetTransparentColor(0);
     gfx_FillScreen(1);
-    gfx_SetTextFGColor(3); // From global pallet. Double check if colors are funky
+    gfx_SetTextFGColor(3); // From global pallet. Double check if text colors are funky
 
     kb_key_t key;
     kb_key_t prevkey = kb_Sub;
@@ -107,6 +108,23 @@ int drawScreen()
     gfx_TransparentSprite_NoClip(building1, 0, 0);
     gfx_TransparentSprite_NoClip(building0, 0, 45);
     gfx_TransparentSprite_NoClip(building2, 0, 211);
+
+    switch (smokeFrame)
+    {
+    case 1:
+        gfx_TransparentSprite_NoClip(smoke0, 34, 5);
+        break;
+    case 2:
+        gfx_TransparentSprite_NoClip(smoke0, 34, 5);
+        gfx_TransparentSprite_NoClip(smoke1, 70, 0);
+        break;
+    case 3:
+        gfx_TransparentSprite_NoClip(smoke1, 70, 0);
+        break;
+
+    default:
+        break;
+    }
 
     gfx_TransparentSprite_NoClip(floor1, 76, 211);
     gfx_TransparentSprite_NoClip(floor2, 257, 142);
@@ -240,6 +258,15 @@ int drawPerson(int location)
 
 int update()
 {
+
+    // Smoke
+    smokeFrame += randInt(0, 1);
+    if (smokeFrame == 4)
+    {
+        smokeFrame = 0;
+    }
+
+    // People
     for (i = 0; i < 22; i++)
     {
         tempPeople[i] = people[i];
