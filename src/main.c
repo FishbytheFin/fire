@@ -7,6 +7,8 @@
 /*
 ToDo:
         - Add smoke
+        - High score
+        - Pausing
 */
 
 int score = 0;
@@ -297,7 +299,7 @@ int update()
             people[i] = 0;
         }
     }
-    if (score >= nextScore && addedPeople < 3 && people[0] == 0 && people[2] == 0 && people[3] == 0 && people[4] == 0 && people[5] == 0 && people[10] == 0 && people[11] == 0 && people[12] == 0 && people[13] == 0 && people[16] == 0 && people[17] == 0 && people[18] == 0 && people[19] == 0 && people[20] == 0)
+    if (score >= nextScore && addedPeople < 3 && people[0] == 0 && people[1] == 0 && people[5] == 0 && people[6] == 0 && people[7] == 0 && people[8] == 0 && people[13] == 0 && people[14] == 0 && people[15] == 0 && people[16] == 0)
     {
         nextScore *= 2;
         addedPeople++;

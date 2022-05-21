@@ -7,9 +7,9 @@ Section          Base   Top    High   Length
 .init.reruncheck D1AA5F D1AA5F             0h
 .init            D1AA5F D1AA89            2Ah
 .fini            D1AA89 D1AABD            34h
-.text            D1AABD D1B2EC           82Fh
-.data            D1B2EC D2AAF0          F804h
-.rodata          D2AAF0 D2AB5D            6Dh
+.text            D1AABD D1B2A2           7E5h
+.data            D1B2A2 D2AAA6          F804h
+.rodata          D2AAA6 D2AB13            6Dh
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -43,10 +43,10 @@ __irems                        = 00016C
 __lmulu                        = 0001CC
 __sand                         = 000200
 __setflag                      = 000218
-.missingappvar                 = D2AAF0
-.libloadname                   = D2AAF5
+.missingappvar                 = D2AAA6
+.libloadname                   = D2AAAB
 .libloadnamelen                = 000007
-.webaddress                    = D2AAFD
+.webaddress                    = D2AAB3
 ___init_clock                  = D1AA44
 __start                        = D1AA5F
 ___exithl                      = D1AA89
@@ -55,39 +55,39 @@ skip.__Exit                    = D1AA89
 skip._abort                    = D1AA89
 _exit.sp                       = D1AA8A
 _exit.flash_wait_states        = D1AA94
-_building0_data                = D1B2EC
-_building1_data                = D1C854
-_building2_data                = D1D4FE
-_crash_data                    = D1D874
-_floor1_data                   = D1DE76
-_floor2_data                   = D1FA1C
-_global_palette                = D20A4A
-_logo_data                     = D20A7C
-_miss_data                     = D28F2F
-_person1_data                  = D29031
-_person2_data                  = D29433
-_person3_data                  = D2976E
-_person4_data                  = D29A96
-_person5_data                  = D29DF8
-_player_data                   = D2A0D2
+_building0_data                = D1B2A2
+_building1_data                = D1C80A
+_building2_data                = D1D4B4
+_crash_data                    = D1D82A
+_floor1_data                   = D1DE2C
+_floor2_data                   = D1F9D2
+_global_palette                = D20A00
+_logo_data                     = D20A32
+_miss_data                     = D28EE5
+_person1_data                  = D28FE7
+_person2_data                  = D293E9
+_person3_data                  = D29724
+_person4_data                  = D29A4C
+_person5_data                  = D29DAE
+_player_data                   = D2A088
 _main                          = D1AB6F
 _drawScreen                    = D1ACD6
 _drawPerson                    = D1AEC3
-LJTI2_0                        = D2AB12
+LJTI2_0                        = D2AAC8
 _update                        = D1AFD8
-_addScore                      = D1B272
+_addScore                      = D1B228
 _score                         = D052C6
-_nextScore                     = D2AAA8
+_nextScore                     = D2AA5E
 _misses                        = D052C9
 _playerPos                     = D052CC
 _crashed                       = D052CF
 _frame                         = D052D2
-_frameDelay                    = D2AAAB
+_frameDelay                    = D2AA61
 _addedPeople                   = D052D5
-_people                        = D2AAAE
+_people                        = D2AA64
 _tempPeople                    = D052D8
 _i                             = D0531A
-L_switch.table.drawScreen      = D2AB54
+L_switch.table.drawScreen      = D2AB0A
 _#gfx_Begin                    = D1AA0A
 _#gfx_End                      = D1AA0E
 _#gfx_SetPalette               = D1AA12
