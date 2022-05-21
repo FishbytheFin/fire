@@ -1,17 +1,18 @@
 #include <tice.h>
 #include <graphx.h>
 #include <keypadc.h>
+#include <fileioc.h>
 
 #include "gfx/gfx.h"
 
 /*
 ToDo:
-        - High score
         - Pausing
         - more control options(7, 9, 4, 6, 1, 3)
 */
 
 int score = 0;
+int highScore = 0;
 int nextScore = 30;
 int misses = 0;
 int playerPos = 0;
@@ -20,6 +21,7 @@ int frame = 0;
 int smokeFrame = 0;
 int frameDelay = 100;
 int addedPeople = 0;
+int again = 0;
 
 int i;
 
@@ -31,16 +33,19 @@ int drawScreen();
 int drawPerson();
 int update();
 int addScore();
+int saveHighScore();
+int loadHighScore();
 
 int main(void)
 {
     /* Initialization */
+    loadHighScore();
+
     gfx_Begin();
     gfx_SetDrawBuffer();
     gfx_SetPalette(global_palette, sizeof_global_palette, 0);
     gfx_SetTransparentColor(0);
     gfx_FillScreen(1);
-    gfx_SetTextFGColor(3); // From global pallet. Double check if text colors are funky
 
     kb_key_t key;
     kb_key_t prevkey = kb_Sub;
@@ -82,10 +87,64 @@ int main(void)
         }
 
         prevkey = key;
-
-        if (kb_Data[6] == kb_Clear || misses >= 3)
+        // kb_Data[6] == kb_Clear ||
+        if (misses >= 3)
         {
-            break;
+            loadHighScore();
+            if (score > highScore)
+            {
+                highScore = score;
+                saveHighScore();
+            }
+            while (true)
+            {
+                kb_Scan();
+                key = kb_Data[6];
+                if (key == kb_Clear)
+                {
+                    again = 0;
+                    break;
+                }
+                else if (key == kb_Enter)
+                {
+                    score = 0;
+                    highScore = 0;
+                    nextScore = 30;
+                    misses = 0;
+                    playerPos = 0;
+                    crashed = 0;
+                    frame = 0;
+                    smokeFrame = 0;
+                    frameDelay = 100;
+                    addedPeople = 0;
+                    again = 1;
+
+                    for (i = 0; i < 22; i++)
+                    {
+                        people[i] = 0;
+                        tempPeople[i] = 0;
+                    }
+                    people[1] = 1;
+                    break;
+                }
+
+                gfx_FillScreen(3);
+                gfx_SetTextFGColor(1);
+                gfx_PrintStringXY("Score:", 2, 2);
+                gfx_PrintStringXY("Hi:", 2, 12);
+                gfx_PrintStringXY("Enter: Play again", 2, 22);
+                gfx_PrintStringXY("Clear: Exit", 2, 32);
+
+                gfx_SetTextXY(50, 12);
+                gfx_PrintInt(highScore, 1);
+                gfx_SetTextXY(50, 2);
+                gfx_PrintInt(score, 1);
+                gfx_BlitBuffer();
+            }
+            if (again == 0)
+            {
+                break;
+            }
         }
 
         /*Logic + graphics:*/
@@ -105,6 +164,7 @@ int drawScreen()
 {
     gfx_FillScreen(1);
 
+    // Background elements:
     gfx_TransparentSprite_NoClip(building1, 0, 0);
     gfx_TransparentSprite_NoClip(building0, 0, 45);
     gfx_TransparentSprite_NoClip(building2, 0, 211);
@@ -129,6 +189,7 @@ int drawScreen()
     gfx_TransparentSprite_NoClip(floor1, 76, 211);
     gfx_TransparentSprite_NoClip(floor2, 257, 142);
 
+    // People:
     for (i = 0; i < 22; i++)
     {
         if (people[i] == 1)
@@ -137,14 +198,16 @@ int drawScreen()
         }
     }
 
+    // Misses:
     if (misses > 0)
     {
         for (i = 0; i < misses; i++)
         {
-            gfx_TransparentSprite_NoClip(miss, 300 - (20 * i), 0);
+            gfx_TransparentSprite_NoClip(miss, 300 - (20 * i), 10);
         }
     }
 
+    // Crash:
     switch (crashed)
     {
     case 1:
@@ -166,7 +229,16 @@ int drawScreen()
 
     gfx_TransparentSprite_NoClip(player, 28 + (playerPos * 75), 185);
 
-    gfx_SetTextXY(240, 10);
+    // Text:
+    gfx_SetTextFGColor(3); // From global pallet. Double check if text colors are funky
+
+    gfx_PrintStringXY("Score:", 190, 2);
+    gfx_PrintStringXY("Hi:", 120, 2);
+    gfx_PrintStringXY("Misses", 270, 0);
+
+    gfx_SetTextXY(140, 2);
+    gfx_PrintInt(highScore, 1);
+    gfx_SetTextXY(240, 2);
     gfx_PrintInt(score, 1);
     gfx_BlitBuffer();
 
@@ -346,6 +418,34 @@ int addScore(int amount)
     if (score == 200 || score == 500)
     {
         misses = 0;
+    }
+    return 0;
+}
+
+int saveHighScore()
+{
+    ti_var_t hiScore;
+    ti_CloseAll();
+    if ((hiScore = ti_Open("FIREHISCORE", "w")))
+    {
+        ti_Write(&highScore, sizeof highScore, 1, hiScore);
+        ti_SetArchiveStatus(true, hiScore);
+        return 0;
+    }
+    return 1;
+}
+
+int loadHighScore()
+{
+    ti_var_t hiScore;
+    ti_CloseAll();
+    if ((hiScore = ti_Open("FIREHISCORE", "r")))
+    {
+        ti_Read(&highScore, sizeof highScore, 1, hiScore);
+    }
+    else
+    {
+        highScore = 0;
     }
     return 0;
 }
