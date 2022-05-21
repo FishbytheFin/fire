@@ -6,6 +6,10 @@
 #include "gfx/gfx.h"
 
 /*
+    Fire CE v1.0 by FishbytheFin
+*/
+
+/*
 ToDo:
         - more control options(7, 9, 4, 6, 1, 3)
 */
